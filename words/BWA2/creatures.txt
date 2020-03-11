@@ -1,0 +1,1125 @@
+4.0
+!Stuffy
+4.1
+nursery
+rhyme
+dish
+spoon
+fiddle
+moon
+diddle
+space
+boots
+riddle
+!Cat
+!Fiddle
+!Space Cow
+!The Moon
+!Dish and Spoon (Boss)
+4.2
+farm
+farming
+farmed
+farmer
+cleaver
+butcher
+ranch
+rancher
+ranching
+livestock
+harvest
+homestead
+produce
+chicken
+chick
+pork
+chops
+poultry
+hogget
+mutton
+beef
+burger
+!A Chicken
+!A Pig
+!A Sheep
+!A Cow
+!Old MacDonald (Boss)
+4.3
+pigs
+wolf
+wolves
+lupine
+goose
+mother
+brick
+straw
+wood
+stick
+sticks
+huff
+puff
+house
+housing
+grandma
+!Straw Pig
+!Stick Pig
+!Brick Pig
+!Grandma
+!Big Bad Wolf (Boss)
+4.4
+jack
+swindle
+swindler
+bean
+beans
+nimble
+quick
+jump
+jumped
+candle
+candlestick
+gold
+golden
+pullet
+rogue
+lean
+plate
+clean
+gravy
+giant
+beanstalk
+!Swindler
+!Candlestick
+!The Hen
+!Mrs. Sprat
+!Giant (Boss)
+4.5
+porridge
+breakfast
+baby
+whey
+mama
+papa
+bear
+ursine
+bearlike
+bowl
+cold
+just
+right
+!Too Cold Porridge
+!Baby Bear
+!Too Hot Porridge
+!Mama Bear
+!Papa Bear (Boss)
+4.6
+girl
+children
+forest
+forgotten
+forget
+lost
+breadcrumb
+trail
+path
+witch
+enchant
+enchantment
+house
+candy
+cake
+gingerbread
+oven
+hexed
+!Gingerbread Man
+!Hansel
+!Gretel
+!Gingerbread House
+!Witch (Boss)
+4.7
+@Colors
+caterpillar
+lair
+smoke
+smoking
+hookah
+puff
+salmon
+mushroom
+famingo
+inhale
+exhale
+inhalation
+exhalation
+wonderland
+mystery
+illusion
+illusions
+illusory
+curious
+curiouser
+!Smoke Cat
+!Smoke Mushroom
+!Smoke Flamingo
+!Smoke Salmon
+!Caterpillar (Boss)
+4.8
+crumpet
+crumpets
+party
+partying
+teapot
+teacup
+dormouse
+march
+hare
+hatter
+insane
+insanity
+madness
+psychosis
+nuts
+nutty
+dotty
+mental
+tablecloth
+invite
+invitation
+cake
+biscuit
+biscuits
+curious
+curiouser
+!Tea Cups
+!The Dormouse
+!Teapot
+!March Hare
+!Mad Hatter (Boss)
+4.9
+behind
+looking
+glass
+mirror
+twin
+twins
+twinned
+carpenter
+carpentry
+walrus
+oyster
+oysters
+twiddle
+aflame
+lolly
+lillipop
+oddball
+strange
+weird
+curious
+curiouser
+bizarre
+unnatural
+monster
+claws
+catch
+jaws
+bite
+curious
+curiouser
+!Tweedle Dee
+!Tweedle Dum
+!Walrus
+!Carpenter
+!Jabberwock (Boss)
+4.10
+queen
+king
+knave
+deuce
+hearts
+card
+pack
+flamingo
+hedgehog
+croquet
+castle
+wonderland
+behead
+beheads
+beheaded
+beheading
+decapitate
+decapitation
+guillotine
+headsman
+royal
+royalty
+madhouse
+asylum
+verdict
+evidence
+sentence
+!The Deuce
+!Flamingo and Hedgehog
+!The Knave of Hearts
+!The King of Hearts
+!The Queen of Hearts (Boss)
+5.1
+nightmare
+dream
+dreamy
+sleep
+asleep
+child
+legend
+folklore
+myth
+tiger
+elder
+demon
+donkey
+tail
+defiant
+fearless
+!Earless Tiger
+!Donkey of Guizhou
+!Tailless Tiger
+!Pig Monster
+!Elder Tiger Demon (Boss)
+5.2
+acolyte
+shaolin
+monk
+brother
+character
+oath
+vice
+vices
+warthful
+wrath
+angry
+anger
+slothful
+sloth
+lazy
+greedy
+greed
+avarice
+gluttonous
+gluttony
+prideful
+pride
+mace
+sword
+disc
+sausage
+!Wrathful Monk
+!Slothful Monk
+!Greedy Monk
+!Gluttonous Monk
+!Prideful Monk (Boss)
+5.3
+imperial
+empire
+emperor
+entangle
+entanglement
+soldier
+sergeant
+captain
+halberd
+order
+orders
+corrupt
+corruption
+rule
+ruler
+lawful
+bear
+!Imperial Foot Soldier
+!Imperial Sergeant
+!War Bear
+!Imperial Captain
+!Sifu Sek Keen (Boss)
+5.4
+@Mammals
+train
+training
+master
+mastery
+skill
+skills
+skillful
+learn
+learner
+learning
+educate
+education
+educates
+educated
+student
+study
+studies
+studied
+martial
+arts
+zodiac
+horoscope
+year
+years
+annum
+snake
+serpent
+horse
+equine
+rooster
+cock
+dogs
+dogged
+doggone
+puppy
+canine
+represent
+representation
+symbol
+symbolic
+symbolize
+kungfu
+!Year of the Snake
+!Year of the Horse
+!Year of the Ram
+!Year of the Rooster
+!Year of the Dog (Boss)
+5.5
+temple
+haunt
+haunted
+haunting
+ghost
+spectre
+wraith
+spook
+spooky
+spirit
+revenant
+dead
+death
+died
+curse
+cursed
+damned
+soul
+souls
+hopeless
+trapped
+endless
+forever
+broken
+brother
+betray
+betrayed
+betrayal
+prison
+prisoner
+imprison
+imprisoned
+remain
+remains
+remained
+terror
+strangle
+strangled
+strangling
+stricken
+tree
+demon
+demonic
+!Broken Brother
+!Revenant
+!Strangling Ghost
+!Stricken Ghost
+!Tree Demon (Boss)
+5.6
+@Fire
+under
+ocean
+marine
+aquatic
+maritime
+nautical
+oceanic
+saltwater
+brine
+briny
+wave
+waves
+submerge
+submerged
+submerging
+submersible
+submarine
+water
+dragon
+guard
+shrimp
+soldier
+alarm
+monkey
+king
+shark
+sergeant
+seahorse
+captain
+invade
+invasion
+incursion
+!Dragon Guard
+!Shrimp Soldier
+!Shark Sergeant
+!Sea Horse Captain
+!Dragon King (Boss)
+5.7
+collapsible
+iron
+monkey
+primate
+chimp
+king
+form
+change
+changed
+alter
+transform
+transforms
+transformed
+transforming
+transformation
+cloud
+fire
+tree
+branch
+branches
+branching
+scamp
+trickster
+tricky
+rascal
+scoundrel
+!Cloud Form
+!Tree Form
+!Fire Form
+!Ant Form
+!The Monkey King (Boss)
+5.8
+heck
+hell
+dimension
+underworld
+under
+world
+death
+dead
+deceased
+monkey
+monkeys
+soul
+souls
+demon
+demonic
+afterlife
+sunless
+realm
+book
+life
+living
+prison
+prisoner
+imprison
+imprisoned
+innocent
+innocence
+rescue
+rescuer
+rescuing
+jailbreak
+action
+screaming
+sutra
+scroll
+doom
+doomed
+white
+bone
+spirit
+bull
+king
+!Low Demon
+!Qin Demon
+!Screaming Sutra
+!White Bone Spirit
+!Bull Demon King (Boss)
+5.9
+words
+word
+symbol
+glyph
+phoneme
+character
+calligraphy
+define
+definition
+meaning
+brush
+stroke
+brushstroke
+door
+doorway
+aperture
+gateway
+enter
+entry
+entryway
+portal
+opening
+ingress
+hatchway
+entrance
+egress
+gate
+heaven
+nirvana
+realm
+sword
+blade
+epee
+sabre
+shank
+bayonet
+cutlass
+machete
+scimitar
+katana
+rapier
+battle
+strife
+conflict
+fight
+fighting
+struggle
+contention
+hostilities
+enmity
+combat
+gold
+auric
+aurous
+gilded
+aurulent
+aureate
+harmony
+accord
+affinity
+amicability
+amity
+consensus
+tranquility
+cooperation
+friendship
+unity
+peace
+agreement
+!Sword
+!War
+!Gold
+!Harmony
+!Door (Boss)
+5.10
+celestial
+realm
+gods
+divine
+divinity
+divinities
+almighty
+angelic
+beatific
+hallowed
+sacred
+mystical
+theistic
+supreme
+jade
+emperor
+judge
+judgment
+jury
+worthy
+worthiness
+test
+mind
+body
+spirit
+north
+south
+east
+west
+kings
+!North King
+!South King
+!East King
+!West King
+!Er-Lang Shen (Boss)
+6.1
+space
+spaceship
+spacecraft
+rocket
+rocketry
+travel
+traveling
+universe
+universal
+galaxy
+galaxies
+galactic
+intergalactic
+star
+stellar
+suns
+solar
+astronomy
+astronomer
+world
+planet
+planetary
+comet
+asteroid
+vacuum
+vast
+infinite
+infinity
+cosmos
+cosmic
+insterstellar
+celestial
+void
+flier
+orbit
+orbits
+orbited
+orbital
+gravity
+relativity
+ionosphere
+magnetosphere
+radiation
+explore
+explorer
+exploring
+exploration
+martian
+tripod
+!Berzerkoid
+!Kxitty
+!Overliege
+!Marsling
+!Monolithic Obelisk (Boss)
+6.2
+wasteful
+land
+waste
+wasteland
+desolate
+desolation
+jungle
+bleakness
+ruin
+wilderness
+devastation
+mutant
+mutation
+mutate
+mutated
+mutating
+radioactive
+radiation
+isotope
+primate
+chimp
+monkey
+disease
+diseased
+poison
+poisoned
+poisonous
+!Mutant
+!Radioactive Mutant
+!Ape
+!Mutant Ape
+!The Great Radiape (Boss)
+6.3
+time
+device
+temporal
+chronology
+clock
+duration
+hour
+minute
+second
+week
+month
+year
+decade
+century
+instant
+interval
+tempo
+term
+season
+past
+present
+future
+eternity
+date
+epoch
+moment
+mechanism
+gadget
+invention
+contraption
+equipment
+machine
+untensil
+gear
+gimmick
+appliance
+cave
+cavern
+cavernous
+underground
+buried
+below
+grotto
+angry
+degenerate
+degrade
+dissolute
+cook
+chef
+chief
+chieftain
+king
+porcine
+morlock
+!Angry Loyim
+!Troglock
+!Troglock Cook
+!War Pig
+!The Troglock King (Boss)
+6.4
+@Metals
+robot
+robots
+robotic
+automaton
+automatic
+cybernetic
+homunculus
+android
+cyborg
+machine
+mechanism
+mechanical
+algorithm
+heuristic
+computer
+slave
+artificial
+intelligence
+intelligent
+humanoid
+program
+clockwork
+electric
+electrical
+electronic
+brain
+calculate
+calculator
+toaster
+!Mandroid
+!Stepfield Wife
+!Robert
+!Robert Giskeel
+!Skeletrox (Boss)
+6.5
+back
+library
+time
+causation
+classic
+classical
+literature
+books
+literary
+paradox
+paradoxes
+paradoxical
+character
+characters
+novel
+novels
+divorcee
+swordsman
+hero
+whale
+previous
+jumping
+jellies
+evil
+!Anna Karenina
+!Cyrano
+!Odysseus
+!Moby Dick
+!Previous Lex (Boss)
+6.6
+sound
+lightning
+thunder
+time
+helmet
+travel
+prehistory
+antique
+archaid
+ancient
+past
+extinct
+fossil
+jurassic
+cretaceous
+triassic
+mesozoic
+dinosaur
+baby
+tyrannosaur
+tyrannosaurus
+butterfly
+chaos
+chaotic
+effect
+hunt
+hunter
+hunting
+safari
+sportsman
+holiday
+tour
+tourist
+guide
+reverberate
+reverberation
+repercussion
+!Baby T-Rex
+!FutureCom Hunter
+!FutureCom Tour Guide
+!Mama T-Rex
+!The Butterfly (Boss)
+6.7
+@Dance
+robot
+robots
+robotic
+automaton
+automatic
+cybernetic
+homunculus
+android
+cyborg
+machine
+mechanism
+mechanical
+algorithm
+heuristic
+computer
+slave
+artificial
+intelligence
+intelligent
+humanoid
+program
+clockwork
+electric
+electrical
+electronic
+brain
+calculate
+calculator
+toaster
+!PopBot Alpha
+!LockBot Beta
+!MC GammaBot
+!DJ Epsilon
+!Skeletrox (Dance Commander)
+6.8
+computer
+computing
+computation
+disk
+disc
+memory
+machine
+central
+process
+processing
+processor
+microprocessor
+unit
+internet
+communication
+cyberspace
+algorithm
+calculate
+calculator
+digital
+electronic
+brain
+mainframe
+microcomputer
+laptop
+cryptography
+security
+integrated
+circuit
+program
+programmed
+programming
+language
+supercomputer
+hardware
+software
+logic
+logical
+browser
+flash
+buggy
+assembly
+keyboard
+mouse
+monitor
+screen
+register
+registry
+hack
+hacker
+hacking
+storage
+operation
+operating
+peripheral
+multitask
+server
+network
+networking
+hypertext
+online
+email
+packet
+file
+transfer
+share
+sharing
+protocol
+information
+domain
+data
+datum
+multimedia
+trojan
+horse
+blog
+video
+audio
+service
+provider
+virus
+viruses
+systems
+avatar
+!Computer Virus
+!Data Node
+!I.C.E. Hammer
+!Rogue Hacker
+!Lady Summer-Speak (Boss)
+6.9
+worst
+dystopia
+ever
+totalitarian
+authority
+authoritarian
+fascist
+fascism
+oppressive
+oppression
+tyranny
+tyrant
+tyrannical
+forbidden
+prohibit
+prohibited
+proscribe
+proscribed
+police
+state
+party
+chairman
+mechanical
+hound
+book
+fireman
+thought
+control
+dominate
+dominance
+domination
+slavery
+freedom
+peace
+ignorance
+strength
+goon
+!Book Burner
+!Thought Cop
+!Mech-Hound
+!Party Chairman
+!Bigger Brother (Boss)
+6.10
+rift
+engine
+machine
+self
+destruct
+sequence
+universe
+reality
+cosmos
+multiverse
+codex
+magic
+explode
+explosion
+destruction
+totality
+redemption
+redeem
+challenge
+climax
+climactic
+finale
+final
+rescue
+!Phase One
+!Phase Two
+!Phase Three

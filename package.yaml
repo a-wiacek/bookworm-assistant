@@ -1,0 +1,61 @@
+name:                bookworm-assistant
+version:             0.1.0.0
+github:              "a-wiacek/bookworm-assistant"
+license:             BSD3
+
+extra-source-files:
+- README.md
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/a-wiacek/bookworm-assistant>
+
+dependencies:
+- base >= 4.7 && < 5
+- array
+- containers
+- directory
+- filepath
+- hspec
+- parsec
+- threepenny-gui
+- transformers
+
+library:
+  source-dirs: src
+  ghc-options:
+  - -Wall
+  - -Werror
+  - -Wno-unused-do-bind
+
+executables:
+  bookworm-assistant:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - bookworm-assistant
+  decompressor:
+    main:                Main.hs
+    source-dirs:         decompressor
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - bookworm-assistant
+
+tests:
+  test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - bookworm-assistant

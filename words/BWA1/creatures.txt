@@ -1,0 +1,194 @@
+1.1
+!Trojan Spearman
+!Trojan Warrior
+!War Hound
+!Trojan Captain
+!Alexander
+!Polydamas (Boss)
+1.2
+!Angry Mountain Goat
+!Angry Ewe
+!Cyclops Herder
+!Angry Ram
+!Cyclops Warrior
+!Polyphemus (Boss)
+1.3
+!Sea Serpent
+!Siren
+!Sea Witch
+!Sea Elemental
+!Kraken
+!Scylla
+!Charybdis (Boss)
+1.4
+!Enchanted Hound
+!Enchanted Eagle
+!Enchanted Lion
+!Enchanted Ram
+!Enchanted Scorpion
+!Enchanted Serpent
+!Circe (Boss)
+1.5
+!Shade
+!Specter
+!Banshee
+!Phantom
+!Manes
+!Orthrus
+!Cerberus (Boss)
+1.6
+!Griffon
+!Harpy
+!Manticore
+!Chimera
+!Harpy Witch
+!Minotaur (Boss)
+1.7
+!Hydra
+1.8
+!Cernian Hind
+!Eurymanthian Boar
+!Calydonian Boar
+!Bronze Symphalian
+@Metals
+!Steel Stymphalian
+@Metals
+!Nemean Lion (Boss)
+@Felines
+1.9
+!Centaur Grappler
+!Centaur Hunter
+!Satyr
+!Liminad
+!Dryad
+!Naiad
+!Nessus (Boss)
+@Colors
+1.10
+!Lesser Basilisk
+!Pemphredo
+!Enyo
+!Deino
+!Greater Basilisk
+!Medusa (Boss)
+2.1
+!Cutthroat
+!Snake Charmer
+!Bandit
+!Sword Swallower
+!Fire Breather
+!Mysterious Assassin (Boss)
+2.2
+!Thief 1
+!Thieves 2&3
+!Thieves 4&5
+!Thieves 6,7&8
+!Thieves 9,10&11
+!Thieves 12,13&14 (Boss)
+2.3
+!Monstrous Scorpion
+@Bones
+!Mummified Hound
+@Bones
+!Mummified Servant
+@Bones
+!Embalmed Guardian
+!Pharaoh of Old (Boss)
+@Bones
+2.4
+!Sphinx
+2.5
+!Bilge Dog
+!Deckswabber
+!Cannoneer
+!Swashbuckler
+!Dread Pirate Al Robarts (Boss)
+2.6
+!Elephant
+!Enormous Serpent
+!Roc Hatchling
+!Bull Elephant
+!Mama Roc (Boss)
+2.7
+@FruitsAndVegetables
+!Mirage Trojan
+!Mirage Skeleton
+!Mirage Nymph
+!Mirage Goat
+!Mirage Xel (Boss)
+2.8
+!Flying Snake
+!Flying Wolf
+!Flying Pig
+!Flying Armor
+!Maladin (Boss)
+2.9
+!Afreet
+!Fire Spirit
+!Djinn
+!Air Spirit
+!Shaitan (Boss)
+2.10
+!Hypnotist
+!Toxophilite
+!Elementalist
+!Necromancer
+!Twisted Vizier (Boss)
+3.1
+!Malicious Magistrate
+!Haggard Heckler
+!Fearful Farmer
+!Hateful Housemaid
+!Angry Mob! (Boss)
+3.2
+!Highwayman
+!Wandering Hag
+!Limping Leper
+!Plagued Pork
+!Eternal Wanderer (Boss)
+3.3
+!Connystein
+!Warrenstein
+!Parkerstein
+!Arnoldstein
+!Frankenstein (Boss)
+3.4
+@Metals
+!Were-Pig
+!Were-Ram
+!Wolf Pack
+!Were-Hawk
+!The Wolf Man (Boss)
+3.5
+@FruitsAndVegetables
+!Bog Serpent
+!Quag Hag
+!Bayou Beast
+!Mr. Blobs
+!The Creature (Boss)
+3.6
+!Grave Robber
+!Carrion Dog
+!Tombstone Gargoyle
+!Disturbed Skeleton
+!Grim (Boss)
+3.7
+!Fallen Warrior Hero
+!Fallen Swashbuckler Hero
+!Fallen Huntress Hero
+!Fallen Wizard Hero (Boss)
+3.8
+@Bones
+!Unliving Archer
+!Unliving Frostmancer
+!Unliving Brute
+!Unliving Pyromancer
+!The Mummy (Boss)
+3.9
+!Ghoul Minion
+!Gargoyle
+!Vampire Mistress
+!Vampire Cultist
+!Dracula (Boss)
+3.10
+!Codex (Final Boss)
