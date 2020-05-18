@@ -27,10 +27,11 @@ parseQu = (char 'q' <|> char 'Q') >> (char 'u' <|> char 'U') >> return Qu
 parseLexGrapheme :: Parser u LexGrapheme
 parseLexGrapheme
       = parseQu
-    <|> (letter >>= \x -> maybe
-        (fail $ "Failed to create grapheme from character " ++ [x])
-        return
-        (mkLexGrapheme x))
+    <|> (do x <- letter
+            maybe
+                (fail $ "Failed to create grapheme from character " ++ [x])
+                return
+                (mkLexGrapheme x))
     <?> "any letter"
     
 parseLexWord :: Parser u LexWord
@@ -72,7 +73,7 @@ parseCreature
     -> ParserEnv (Int -> (Creature, Map.Map Creature (Set.Set LexWord)))
 parseCreature creatureBook creatureChapter = do
     char '!'
-    creatureName <- parseLine
+    creatureName <- Text.pack <$> parseLine
     catsWords <- mconcat <$> many (char '@' >> parseCat) 
     creatureWords <- Set.fromList <$> many parseLexWord
     return $ \creatureNumber ->

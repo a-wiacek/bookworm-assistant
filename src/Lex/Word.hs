@@ -29,6 +29,7 @@ module Lex.Word
 import Data.Char
 import Data.Ord (Down (..))
 import Data.Function (on)
+import qualified Data.Text as Text
 import System.FilePath ((</>))
 import Text.Printf
 
@@ -154,16 +155,16 @@ data Creature = Creature
     { creatureBook :: !Int
     , creatureChapter :: !Int
     , creatureNumber :: !Int
-    , creatureName :: !String
+    , creatureName :: !Text.Text
     } deriving (Eq, Ord)
 
 instance Show Creature where
     show c = printf
-        "%d.%d.%d: %s"
+        "%d.%d.%d: "
         (creatureBook c)
         (creatureChapter c)
         (creatureNumber c)
-        (creatureName c)
+        ++ Text.unpack (creatureName c)
 
 creatureGameVersion :: Creature -> GameVersion
 creatureGameVersion creature
