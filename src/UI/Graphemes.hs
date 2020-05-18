@@ -1,5 +1,8 @@
-module UI.Graphemes(graphemes) where
-import Data.Maybe
+module UI.Graphemes
+    ( graphemes
+    ) where
+
+import Data.Maybe (mapMaybe)
 import qualified Graphics.UI.Threepenny as UI
 import Graphics.UI.Threepenny.Core
 

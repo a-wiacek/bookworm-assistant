@@ -1,5 +1,12 @@
-module UI.LexGrid(ImgDict, wildcardImg, loadTileTypeImages, lexGrid, mkUnclickableTile) where
-import Control.Monad
+module UI.LexGrid
+    ( ImgDict
+    , imgDictWildcardImg
+    , loadTileTypeImages
+    , lexGrid
+    , mkUnclickableTile
+    ) where
+
+import Control.Monad (replicateM, zipWithM_)
 import qualified Data.Map.Strict as Map
 import qualified Graphics.UI.Threepenny as UI
 import Graphics.UI.Threepenny.Core
@@ -8,25 +15,25 @@ import Text.Printf
 import Lex.Word
 
 data ImgDict = ImgDict 
-    { _tileTypeImg :: Map.Map LexTileType String
-    , wildcardImg :: String
+    { imgDictLexTileTypePath :: !(Map.Map LexTileType String)
+    , imgDictWildcardImg :: !String
     }
 
 formatImgUrl :: String -> String
 formatImgUrl = printf "url('%s')"
 
-tileTypeImg :: ImgDict -> LexTileType -> String
-tileTypeImg imgDict t = formatImgUrl (_tileTypeImg imgDict Map.! t)
+lexTileTypeImg :: ImgDict -> LexTileType -> String
+lexTileTypeImg imgDict t = formatImgUrl (imgDictLexTileTypePath imgDict Map.! t)
 
 loadTileTypeImage :: LexTileType -> UI (LexTileType, String)
 loadTileTypeImage t = do
-    s <- loadFile "image/jpeg" (tileTypeFilename t)
+    s <- loadFile "image/jpeg" (lexTileTypeFilename t)
     return (t, s)
 
 loadTileTypeImages :: UI ImgDict
 loadTileTypeImages
       = ImgDict . Map.fromList
-    <$> mapM loadTileTypeImage allTileTypes
+    <$> mapM loadTileTypeImage allLexTileTypes
     <*> loadFile "image/jpeg" wildcardFilename
 
 setTileStyle :: ImgDict -> Maybe LexTileType -> UI Element -> UI Element
@@ -39,7 +46,7 @@ setTileStyle dict t = set UI.style
     , ("text-align", "center")
     , ("border", "thin solid black")
     ] where size = "50px"
-            img = maybe (formatImgUrl $ wildcardImg dict) (tileTypeImg dict) t
+            img = maybe (formatImgUrl $ imgDictWildcardImg dict) (lexTileTypeImg dict) t
 
 mkClickableTile :: ImgDict -> Event a -> UI (Element, Behavior LexTileType)
 mkClickableTile dict resetE = do
@@ -47,7 +54,7 @@ mkClickableTile dict resetE = do
     eType <- accumE Basic $ foldr1 (unionWith const) -- first event in the list has the highest priority
         [ const Basic <$ resetE -- changing graphemes resets tile type
         , const Basic <$ UI.contextmenu box -- right click resets tile type
-        , nextTileType <$ UI.click box -- left click chooses next tile type
+        , nextLexTileType <$ UI.click box -- left click chooses next tile type
         ]
     bType <- stepper Basic eType
     onEvent eType $ \t -> element box # setTileStyle dict (Just t)
@@ -55,8 +62,8 @@ mkClickableTile dict resetE = do
 
 mkUnclickableTile :: ImgDict -> LexTile -> UI Element
 mkUnclickableTile dict tile = UI.div
-    # setTileStyle dict (case tile of { WildcardTile{} -> Nothing; _ -> Just (tileType tile) })
-    # set UI.text (show $ tileLexGrapheme tile)
+    # setTileStyle dict (case tile of { WildcardTile{} -> Nothing; _ -> Just (lexTileType tile) })
+    # set UI.text (show $ lexTileGrapheme tile)
 
 freezeTiles :: UI (Element, Behavior Bool)
 freezeTiles = do

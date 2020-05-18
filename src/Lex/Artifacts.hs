@@ -1,6 +1,18 @@
-module Lex.Artifacts where
-import Data.List(group, isInfixOf, (\\))
-import Data.Maybe
+module Lex.Artifacts
+    ( Artifact (..)
+    , allArtifacts
+    , isUpgradeOf
+    , isDowngradeOf
+    , filterUpgrades
+    , alterLetterBaseScore
+    , alterTileValues
+    , wordDamageMultiplier
+    , categoriesMultiplier
+    ) where
+
+import Data.List (group, isInfixOf, lookup, (\\))
+import Data.Maybe (mapMaybe)
+import Data.Tuple (swap)
 
 import Lex.Word
 
@@ -50,62 +62,51 @@ instance Show Artifact where
 allArtifacts :: [Artifact]
 allArtifacts = [BowOfZyx ..]
 
+upgrades :: [(Artifact, Artifact)]
+upgrades =
+    [ (BowOfZyx, ArchOfXyzzy)
+    , (TomeOfTheAncients, TabletOfTheAges)
+    , (WolfbaneNecklace, SlayerTalisman)
+    , (GumdropNecklace, CollapsibleIronRod)
+    , (MagicPen, MagicPenCap)
+    , (TheCelestialKey, SemiFlange)
+    ]
+
 isUpgradeOf :: Artifact -> Maybe Artifact
-isUpgradeOf ArchOfXyzzy = Just BowOfZyx
-isUpgradeOf TabletOfTheAges = Just TomeOfTheAncients
-isUpgradeOf SlayerTalisman = Just WolfbaneNecklace
-isUpgradeOf CollapsibleIronRod = Just GumdropNecklace
-isUpgradeOf MagicPenCap = Just MagicPen
-isUpgradeOf SemiFlange = Just TheCelestialKey
-isUpgradeOf _ = Nothing
+isUpgradeOf = flip lookup (map swap upgrades)
 
 isDowngradeOf :: Artifact -> Maybe Artifact
-isDowngradeOf BowOfZyx = Just ArchOfXyzzy
-isDowngradeOf TomeOfTheAncients = Just TabletOfTheAges
-isDowngradeOf WolfbaneNecklace = Just SlayerTalisman
-isDowngradeOf GumdropNecklace = Just CollapsibleIronRod
-isDowngradeOf MagicPen = Just MagicPenCap
-isDowngradeOf TheCelestialKey = Just SemiFlange
-isDowngradeOf _ = Nothing
+isDowngradeOf = flip lookup upgrades
 
 filterUpgrades :: [Artifact] -> [Artifact]
 filterUpgrades artifacts = artifacts \\ mapMaybe isDowngradeOf artifacts
 
 alterLetterBaseScore :: Artifact -> (LexGrapheme -> Int) -> LexGrapheme -> Int
-alterLetterBaseScore BowOfZyx f l | l `elem` [X, Y, Z] = 10
-                                  | otherwise = f l
-alterLetterBaseScore ArchOfXyzzy f l | l `elem` [X, Y, Z] = 12
-                                     | otherwise = f l
-alterLetterBaseScore WoodenParrot f l | l == R = 8
-                                      | otherwise = f l
-alterLetterBaseScore _ f l = f l
+alterLetterBaseScore artifact f l
+    | artifact == BowOfZyx && l `elem` [X, Y, Z] = 10
+    | artifact == ArchOfXyzzy && l `elem` [X, Y, Z] = 12
+    | artifact == WoodenParrot && l == R = 8
+    | otherwise = f l
 
 alterTileValues :: Artifact -> (LexTile -> (Int, Double)) -> LexTile -> (Int, Double)
-alterTileValues ScimitarOfJustice f t
-    | tileType t `elem` allGems = (v, m + 0.1)
+alterTileValues artifact f t
+    | isGem && artifact `elem` [ScimitarOfJustice, GumdropNecklace] = (v, m + 0.1)
+    | isGem && artifact == CollapsibleIronRod = (v, m + 0.2)
     | otherwise = (v, m)
     where (v, m) = f t
-alterTileValues GumdropNecklace f t
-    | tileType t `elem` allGems = (v, m + 0.1)
-    | otherwise = (v, m)
-    where (v, m) = f t
-alterTileValues CollapsibleIronRod f t
-    | tileType t `elem` allGems = (v, m + 0.2)
-    | otherwise = (v, m)
-    where (v, m) = f t
-alterTileValues _ f t = f t
+          isGem = lexTileType t `elem` allGems
 
 wordDamageMultiplier :: [LexTile] -> Artifact -> Double
-wordDamageMultiplier tiles QuadrumvirSignet
-    | [Qu, A] `isInfixOf` map tileLexGrapheme tiles = 1.5
+wordDamageMultiplier tiles artifact
+    | artifact == QuadrumvirSignet && qua = 1.5
+    | artifact == TheCelestialKey && dup = 1.5
+    | artifact == SemiFlange && dup = 2
     | otherwise = 1
-wordDamageMultiplier tiles TheCelestialKey
-    | any ((>1) . length) (group $ map tileLexGrapheme tiles) = 1.5
-    | otherwise = 1
-wordDamageMultiplier tiles SemiFlange
-    | any ((>1) . length) (group $ map tileLexGrapheme tiles) = 2
-    | otherwise = 1
-wordDamageMultiplier _ _ = 1
+    where graphemes = map lexTileGrapheme tiles
+          qua = [Qu, A] `isInfixOf` graphemes
+          -- dup means "there are two identical consecutive letters"
+          -- special case [Qu, U] is needed since there are words containing infix "quu"
+          dup = any ((>1) . length) (group graphemes) || [Qu, U] `isInfixOf` graphemes
 
 categoriesMultiplier :: Artifact -> [(BonusWordsCategory, Double)]
 categoriesMultiplier artifact = case artifact of

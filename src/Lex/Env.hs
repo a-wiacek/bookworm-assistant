@@ -1,4 +1,7 @@
-{-# LANGUAGE LambdaCase, RecordWildCards, TupleSections #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
+
 module Lex.Env
     ( GameVersionEnv
     , allWords
@@ -9,28 +12,30 @@ module Lex.Env
     , allCreatures
     , parseLexEnv
     ) where
-import Control.Monad
+
+import Control.Monad (forM)
 import qualified Data.Map.Strict as Map
 import qualified Data.Set as Set
-import System.Directory
-import System.FilePath
+import qualified Data.Text.IO as Text
+import System.Directory (doesFileExist)
+import System.FilePath ((</>))
 
 import Lex.Parser
 import Lex.Word
 
 data GameVersionEnv = GameVersionEnv
-    { allWords :: [LexWord]
-    , creatureSpecialWords :: Map.Map Creature (Set.Set LexWord)
-    , bonusCategories :: Map.Map BonusWordsCategory (Set.Set LexWord)
+    { allWords :: ![LexWord]
+    , creatureSpecialWords :: !(Map.Map Creature (Set.Set LexWord))
+    , bonusCategories :: !(Map.Map BonusWordsCategory (Set.Set LexWord))
     }
 
 data LexEnv = LexEnv
-    { gameSpecificEnv :: GameVersion -> GameVersionEnv
-    , allCreatures :: [Creature]
+    { gameSpecificEnv :: !(GameVersion -> GameVersionEnv)
+    , allCreatures :: ![Creature]
     }
 
 parseLexWords :: String -> IO [LexWord]
-parseLexWords path = readFile path >>= throwParseError . parseWords path
+parseLexWords path = Text.readFile path >>= throwParseError . parseWords path
 
 parseGameEnv :: GameVersion -> IO (GameVersionEnv, [Creature])
 parseGameEnv version = do
@@ -41,8 +46,8 @@ parseGameEnv version = do
             p <- doesFileExist (catPath cat)
             if p then parseLexWords (catPath cat)
                  else return []
-    (creatures, creatureSpecialWords) <- readFile creaturesPath
-                                     >>= throwParseError . parseCreatures bonusCategories creaturesPath
+    (creatures, creatureSpecialWords) <- Text.readFile creaturesPath
+        >>= throwParseError . parseCreatures bonusCategories creaturesPath
     return (GameVersionEnv{..}, creatures)
     where verDir = baseDir version
           allWordsPath = verDir </> allWordsFile
@@ -53,7 +58,7 @@ parseLexEnv :: IO LexEnv
 parseLexEnv = do
     (env1, s1) <- parseGameEnv BWA1
     (env2, s2) <- parseGameEnv BWA2
-    return $ LexEnv
+    return LexEnv
         { gameSpecificEnv = \case { BWA1 -> env1; BWA2 -> env2 }
         , allCreatures = s1 ++ s2
         }

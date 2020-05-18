@@ -1,5 +1,7 @@
-{-# LANGUAGE ScopedTypeVariables #-}
-module UI.Creature(creature) where
+module UI.Creature
+    ( creature
+    ) where
+
 import qualified Data.Map.Strict as Map
 import qualified Graphics.UI.Threepenny as UI
 import Graphics.UI.Threepenny.Core

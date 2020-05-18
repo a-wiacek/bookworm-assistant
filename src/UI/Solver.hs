@@ -1,9 +1,12 @@
-module UI.Solver(solver) where
-import Data.Maybe(fromMaybe)
+module UI.Solver
+    ( solver
+    ) where
+
+import Data.Maybe (fromMaybe)
 import qualified Graphics.UI.Threepenny as UI
 import Graphics.UI.Threepenny.Core
 import Text.Printf
-import Text.Read
+import Text.Read (readMaybe)
 
 import Lex.Artifacts
 import Lex.Env
@@ -43,7 +46,9 @@ solver env dict artifactsB tilesB creatureB wildcardB = do
     results <- row [element wordScores, element wordTiles]
     c <- column $ map element [button, results]
     set UI.children [c] (element finalDiv)
-    let solverE = take <$> counterB <*> (runSolver env <$> artifactsB <*> tilesB <*> creatureB <*> wildcardB)
+    let solverE = take
+              <$> counterB
+              <*> (runSolver env <$> artifactsB <*> tilesB <*> creatureB <*> wildcardB)
                <@ UI.click button
     onEvent solverE $ \sols -> do
         results' <- mapM (uncurry $ singleResult dict) sols >>= column . map element

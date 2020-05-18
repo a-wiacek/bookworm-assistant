@@ -1,10 +1,14 @@
-module Lex.Solver where
-import Data.Function(on)
-import Data.List(delete, maximumBy, sortOn)
+module Lex.Solver
+    ( runSolver
+    ) where
+
+import Data.Function (on)
+import Data.List (delete, maximumBy, sortOn)
 import qualified Data.Map.Strict as Map
-import Data.Maybe(mapMaybe, fromMaybe)
-import Data.Ord
+import Data.Maybe (mapMaybe, fromMaybe)
+import Data.Ord (Down (..))
 import qualified Data.Set as Set
+
 import Lex.Artifacts
 import Lex.Env
 import Lex.Word
@@ -45,7 +49,7 @@ wordDamage weight = case weight `div` 4 of
 -- The double represents multiplier altering the damage.
 -- Damage should be multiplied by (1 + sum of all of them).
 tileBaseValues :: (LexGrapheme -> Int) -> LexTile -> (Int, Double)
-tileBaseValues f t = case tileType t of
+tileBaseValues f t = case lexTileType t of
     Basic -> (v, 1)
     Amethyst -> (v, 1.15)
     Emerald -> (v, 1.2)
@@ -55,7 +59,7 @@ tileBaseValues f t = case tileType t of
     Crystal -> (v, 1.5)
     Diamond -> (v, 2)
     Smashed -> (0, 1)
-    where v = f (tileLexGrapheme t)
+    where v = f (lexTileGrapheme t)
 
 -- The strategy of the function is to build word with maximum base damage.
 -- To do so, it greedily takes the best possible tile for given letter.
@@ -70,13 +74,13 @@ tileBaseValues f t = case tileType t of
 -- I have decided to stick to BWA2 strategy, i. e. all bonuses stack multiplicatively.
 
 selectTiles :: [LexTile] -> Bool -> LexWord -> Maybe [LexTile]
-selectTiles grid hasWildcard word = go grid hasWildcard (graphemeWord word) where
+selectTiles grid hasWildcard word = go grid hasWildcard (unLexWord word) where
     go _ _ [] = Just []
-    go tiles w (h:t)
+    go tiles w (h : t)
         | null l = if w then (WildcardTile h :) <$> go tiles False t else Nothing
-        | otherwise = (tileUsed:) <$> go (delete tileUsed tiles) w t
-        where l = filter ((==h) . tileLexGrapheme) tiles
-              tileUsed = maximumBy (compare `on` tileType) l
+        | otherwise = (tileUsed :) <$> go (delete tileUsed tiles) w t
+        where l = filter ((==h) . lexTileGrapheme) tiles
+              tileUsed = maximumBy (compare `on` lexTileType) l
 
 computeDamage :: GameVersionEnv -> [Artifact] -> Set.Set LexWord -> [LexTile] -> Double
 computeDamage env artifacts bonusWords tiles =
@@ -89,7 +93,7 @@ computeDamage env artifacts bonusWords tiles =
         mul2 = foldr ((*) . wordDamageMultiplier tiles) 1 artifacts
         -- multiplier 3: artifacts basing on the category of the word
         catMultipliers = Map.fromListWith max $ concatMap categoriesMultiplier artifacts
-        thisWord = tilesToWord tiles
+        thisWord = lexTilesToLexWord tiles
         mulIfBelongs cat m = case Map.lookup cat (bonusCategories env) of
             Nothing -> 1
             Just words' -> if thisWord `Set.member` words'
@@ -122,5 +126,5 @@ runSolver env artifacts tiles creature hasWildcard =
         gameEnv = gameSpecificEnv env gameVersion
         bonusWords = fromMaybe (error $ "Bonus words not found for creature " ++ show creature)
                                (Map.lookup creature (creatureSpecialWords gameEnv))
-    in sortOn (\(score, word) -> (Down score, tilesToWord word))
+    in sortOn (\(score, word) -> (Down score, lexTilesToLexWord word))
         $ mapMaybe (buildWord gameEnv artifacts tiles bonusWords hasWildcard) (allWords gameEnv)

@@ -1,33 +1,46 @@
 module Main where
-import Data.Char
-import System.FilePath
+
+import Data.Text (Text)
+import qualified Data.Text as Text
+import Data.Text.Read (decimal)
+import qualified Data.Text.IO as Text
+import System.FilePath ((</>))
 
 import Lex.Word
 
-decode :: Int -> String -> String -> (String, Int)
-decode no prev this = (prefix ++ suffix, no') where
-    (count, suffix) = span isDigit this
-    no' = if null count then no else read count
-    prefix = take no' prev
+decode :: Int -> Text -> Text -> (Text, Int)
+decode no prev this = (prefix <> suffix, no') where
+    (no', suffix) = case decimal this of
+        Left _ -> (no, this)
+        Right r -> r
+    prefix = Text.take no' prev
 
-decodeAll :: [String] -> [String]
+decodeAll :: [Text] -> [Text]
 decodeAll [] = []
-decodeAll (h:t) = h : go 0 h t where
+decodeAll (h : t) = h : go 0 h t where
     go _ _ [] = []
-    go no prev (this:next) = let (decoded, no') = decode no prev this
-                             in decoded : go no' decoded next
+    go no prev (this : next) = let (decoded, no') = decode no prev this
+                               in decoded : go no' decoded next
 
-hasNoQ :: String -> Bool
-hasNoQ [] = True
-hasNoQ ('q':'u':t) = hasNoQ t
-hasNoQ ('q':_) = False
-hasNoQ (_:t) = hasNoQ t
-
-main :: IO ()
-main = decodeInDir BWA1 >> decodeInDir BWA2
+hasNoQ :: Text -> Bool
+hasNoQ text = case Text.uncons text of
+    Nothing -> True
+    Just (h1, t1) -> if h1 == 'q'
+        then case Text.uncons t1 of
+            Nothing -> False
+            Just (h2, t2) -> h2 == 'u' && hasNoQ t2
+        else hasNoQ t1
 
 decodeInDir :: GameVersion -> IO ()
 decodeInDir version
-      = readFile (verDir </> compressedFile)
-    >>= writeFile (verDir </> allWordsFile) . unlines . filter hasNoQ . decodeAll . filter (not . null) . lines
+      = Text.unlines
+      . filter hasNoQ
+      . decodeAll
+      . filter (not . Text.null)
+      . Text.lines
+    <$> Text.readFile (verDir </> compressedFile)
+    >>= Text.writeFile (verDir </> allWordsFile)
     where verDir = baseDir version
+
+main :: IO ()
+main = decodeInDir BWA1 >> decodeInDir BWA2

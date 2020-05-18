@@ -19,6 +19,7 @@ dependencies:
 - filepath
 - hspec
 - parsec
+- text
 - threepenny-gui
 - transformers
 
